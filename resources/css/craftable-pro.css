@@ -1,0 +1,7 @@
+@import "craftable-pro/../css/craftable-pro.css";
+
+@config "../../craftable-pro.tailwind.config.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

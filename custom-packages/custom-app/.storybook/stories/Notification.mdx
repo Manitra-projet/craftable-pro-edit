@@ -1,0 +1,46 @@
+import { Story, Canvas } from "@storybook/addon-docs";
+
+# Notification component
+
+Mode info at https://github.com/Maronato/vue-toastification
+
+## Import like this
+
+```js
+import { useToast } from "@brackets/vue-toastification";
+```
+
+## Use like this
+
+```js
+setup() {
+    const toast = useToast();
+    toast("I'm a default toast!"));
+}
+```
+
+## Or like this
+
+```js
+setup() {
+    const toast = useToast();
+    toast.info("I'm an info toast!"), {
+        description: "10 minutes ago",
+    });
+}
+```
+
+## Ofcourse you can use translations
+
+```js
+import { transGroup } from "craftable-pro/plugins/laravel-vue-i18n";
+```
+
+```js
+setup() {
+    const toast = useToast();
+    toast.info(transGroup("craftable-pro", "I'm a :type toast!", { type: "info" }), {
+        description: transChoice("{1} :count minute ago|[2,*] :count minutes ago", 10),
+    });
+}
+```

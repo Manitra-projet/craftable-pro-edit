@@ -1,0 +1,21 @@
+import { Story, Canvas } from "@storybook/addon-docs";
+
+# Listing component
+
+This is a documentation for `Listing` component
+
+## Default usage (without slots)
+
+Simply pass the data and columns props. Listing will show data based on columns array.
+
+<Canvas>
+    <Story id="listing-listing--default" />
+</Canvas>
+
+## With slots
+
+If default behaviour is not enough for your needs, you can use prepared slots to define table header and table row using slots `#tableHead` and `#tableRow`. It's recommended to use `ListingHeaderCell` and `ListingDataCell` components for this as well, since these components has some predefined styles.
+
+<Canvas>
+    <Story id="listing-listing--with-slots" />
+</Canvas>

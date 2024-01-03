@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "useDefineForClassFields": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "strict": true,
+        "jsx": "preserve",
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "lib": ["esnext", "dom"],
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["resources/js/*"],
+            "custom-app/*": ["custom-packages/custom-app/resources/js/*"]
+        }
+    },
+    "include": [
+        "resources/js/custom-app/**/*.ts",
+        "resources/js/custom-app/**/*.d.ts",
+        "resources/js/custom-app/**/*.tsx",
+        "resources/js/custom-app/**/*.vue"
+    ]
+}

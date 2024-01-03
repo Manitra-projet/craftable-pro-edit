@@ -1,0 +1,21 @@
+@import "@vueform/multiselect/themes/default.css";
+
+.prose :where(iframe):not(:where([class~="not-prose"] *)) {
+    @apply aspect-video rounded-md;
+}
+
+/*
+    Fix for a duplicate arrow issue
+    https://github.com/nathanreyes/v-calendar/issues/890
+*/
+.vc-select select {
+    background-image: none;
+}
+
+.Vue-Toastification__progress-bar {
+    @apply !bg-gray-200;
+}
+
+.multiselect-wrapper {
+    @apply !min-h-[36px];
+}

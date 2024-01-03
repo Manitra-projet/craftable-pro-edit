@@ -1,0 +1,28 @@
+<Meta title="Creating pages" />
+
+# Creating pages
+
+When creating new page components, place them inside `Page` folder. This way they will be automatically registered in the `index.ts` file.
+
+## Page component
+
+Every page component should be a Vue component with the following structure. This structure is used to provide consistent page layout and styling, but you can still create page from scratch if you need to.
+
+```html
+<template>
+    <PageHeader title="Page title goes here">
+        <!-- PageHeader default slot used to place buttons or any other markup inside the PageHeader -->
+    </PageHeader>
+
+    <PageContent>
+        <!-- PageContent default slot used to place content within the container -->
+
+        <template #aside>
+            <!--
+                PageContent slot used to place content outside of the container,
+                usefull for using dedicated `Aside` component
+            -->
+        </template>
+    </PageContent>
+</template>
+```

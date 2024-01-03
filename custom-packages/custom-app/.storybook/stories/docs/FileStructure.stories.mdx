@@ -1,0 +1,38 @@
+<Meta title="File structure" />
+
+# File structure
+
+Installing Craftable Pro will create two Vite aliases
+
+-   `craftable-pro` for loading most of the Craftable components from the vendor folder
+-   `@` pointing to resources folder in your project, where are located some of the components for better customizability
+
+## Craftable components
+
+Craftable components are located in the vednor folder. This way we can ensure their updateability. Bellow is the file structure for better orientation:
+
+```
+vendor/brackets/craftable-pro/resources/js
+├── Components/
+├── helpers/
+├── hooks/
+├── Layouts/
+├── Pages/
+├── plugins/
+└── types/
+```
+
+## Project components
+
+Installing Craftable Pro will copy some of the components to your project. This way you can customize them to your needs. Bellow is the file structure for better orientation:
+
+```
+resource/js/craftable-pro
+├── Components/
+│   ├── Logo.vue (used to customize content of the logo)
+│   ├── Sidebar.vue (used to customize content of the sidebar)
+│   └── UserDropdown.vue (used to customize content of the user dropdown menu)
+├── Pages/
+├── index.ts
+└── shims-vue.d.ts
+```

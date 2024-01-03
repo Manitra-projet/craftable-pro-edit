@@ -1,0 +1,83 @@
+{
+    "name": "brackets/custom-app",
+    "description": "New generation of administration",
+    "keywords": [
+        "BRACKETS-by-TRIAD",
+        "laravel",
+        "custom-app"
+    ],
+    "homepage": "https://#",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Custom",
+            "email": "custom@app.sk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/contracts": "^9.21|^10.0",
+        "illuminate/filesystem": "^9.21|^10.0",
+        "illuminate/support": "^9.21|^10.0",
+        "inertiajs/inertia-laravel": "^0.6.9",
+        "laravel/sanctum": "^3.0",
+        "maatwebsite/excel": "^3.1",
+        "nesbot/carbon": "^2.62.1",
+        "ramsey/uuid": "^4.3",
+        "spatie/laravel-medialibrary": "^10.0.0",
+        "spatie/laravel-package-tools": "^1.9.2",
+        "spatie/laravel-permission": "^5.5",
+        "spatie/laravel-query-builder": "^5.0",
+        "spatie/laravel-settings": "^2.6",
+        "spatie/laravel-tags": "^4.3",
+        "spatie/laravel-translation-loader": "^2.7",
+        "tightenco/ziggy": "^1.5",
+        "doctrine/dbal": "^3.6"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^6.0",
+        "nunomaduro/larastan": "^2.0.1",
+        "orchestra/testbench": "^7.0|^8.0",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "phpstan/extension-installer": "^1.1",
+        "phpunit/phpunit": "^9.5",
+        "spatie/laravel-ray": "^1.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "CustomPackage\\CustomApp\\": "src",
+            "CustomPackage\\CustomApp\\Database\\Factories\\": "database/factories"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CustomPackage\\CustomApp\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CustomPackage\\CustomApp\\CustomAppServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -1,0 +1,127 @@
+<Meta title="Forms" />
+
+# Forms
+
+## Building form
+
+Craftable Pro comes with plenty form components to help you build your forms. You can use them with other components to quickly build forms even with complicated layouts.
+Examine the example bellow to see how to use them:
+
+```html
+<template>
+    <Card title="Some optional title">
+        <div class="grid grid-cols-6 gap-6">
+            <TextInput
+                v-model="form.first_name"
+                name="first_name"
+                :label="$t('craftable-pro', 'First name')"
+                class="col-span-6 sm:col-span-3"
+            />
+            <TextInput
+                v-model="form.last_name"
+                name="last_name"
+                :label="$t('craftable-pro', 'Last name')"
+                class="col-span-6 sm:col-span-3"
+            />
+            <TextInput
+                v-model="form.email"
+                name="email"
+                :label="$t('craftable-pro', 'E-mail')"
+                type="email"
+                class="col-span-6 sm:col-span-3"
+            />
+            <Multiselect
+                v-model="form.locale"
+                name="locale"
+                label="Locale"
+                mode="single"
+                :options="locales"
+                class="col-span-4 sm:col-span-2 sm:col-start-1"
+            />
+            <TextInput
+                v-model="form.password"
+                name="password"
+                :label="$t('craftable-pro', 'Password')"
+                type="password"
+                autocomplete="new-password"
+                class="col-span-6 sm:col-span-3"
+            />
+            <TextInput
+                v-model="form.password_confirmation"
+                name="password_confirmation"
+                :label="$t('craftable-pro', 'Password confirmation')"
+                type="password"
+                autocomplete="new-password"
+                class="col-span-6 sm:col-span-3 sm:col-start-1"
+            />
+            <Dropzone
+                v-model="form.avatar"
+                name="avatar"
+                label="Avatar"
+                class="col-span-6"
+            />
+        </div>
+
+        <template #footer>
+            <CardFooter class="bg-gray-50 text-right">
+                <button
+                    :leftIcon="ArrowDownTrayIcon"
+                    @click="submit"
+                    :loading="form.processing"
+                >
+                    {{ $t("craftable-pro", "Save") }}
+                </button>
+            </CardFooter>
+        </template>
+    </Card>
+</template>
+<script setup lang="ts">
+    import { ArrowDownTrayIcon } from "@heroicons/vue/24/outline";
+    import {
+        Button,
+        Card,
+        CardContent,
+        CardFooter,
+        TextInput,
+        Multiselect,
+        Dropzone,
+    } from "craftable-pro/Components";
+
+    interface Props {
+        locales?: string[];
+    }
+
+    const props = withDefaults(defineProps<Props>(), {
+        locales: () => ["en"],
+    });
+
+    // This is detaily explained in the next section
+    const { form, submit } = useForm<CraftableProUserForm>(...);
+</script>
+```
+
+## useForm helper
+
+Craftable Pro is built with [InertiaJS](https://inertiajs.com/). We use their `useForm` helper to handle form state and form submit.
+However we have extended it to make it more flexible and to add some extra functionality.
+First attribute is the form data object with the default values, second is the route and third is the route method (defaults to `put`).
+Examine the example bellow to see it in action:
+
+```html
+<template> ... </template>
+<script setup lang="ts">
+    const { form, submit } = useForm<CraftableProUserForm>(
+        {
+            first_name: "",
+            last_name: "",
+            email: "",
+            password: "",
+            password_confirmation: "",
+            locale: props.locales[0],
+            avatar: [],
+        },
+        route("craftable-pro.craftable-pro-users.store"),
+        "post"
+    );
+</script>
+```
